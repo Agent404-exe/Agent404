@@ -1,0 +1,15 @@
+               String subnet = "xxx.xxx.x.xxx"; // your IPv4
+        int timeout = 100; 
+
+        for (int i = 1; i < 255; i++) {
+            String host = subnet + "." + i;
+            try {
+                InetAddress address = InetAddress.getByName(host);
+                if (address.isReachable(timeout)) {
+                    System.out.println(host + " is activ");
+                }
+            } catch (Exception e) {
+                System.err.println("Erorr with the address " + host + ": " + e.getMessage());
+            }
+        }
+    }
